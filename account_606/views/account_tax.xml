@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_tax_form_inherited" model="ir.ui.view">
+            <field name="name">view.tax.form.inherited</field>
+            <field name="model">account.tax</field>
+            <field name="inherit_id" ref="account.view_tax_form"/>
+            <field name="arch" type="xml">
+                 <group name="advanced_booleans" position="after">
+                    <group string="Columna del 606" attrs="{'invisible': [('type_tax_use', '!=', 'purchase')]}">
+                        <field name="itbis_facturado"/>
+                        <field name="itbis_retenido"/>
+                        <field name="itbis_sujeto_troporcionalidad"/>
+                        <field name="itbis_llevado"/>
+                        <field name="monto_retencion_renta"/>
+                        <field name="impuesto_selectivo_al_consumo"/>
+                        <field name="otros_impuestos"/>
+                        <field name="monto_propina_legal"/>
+                    </group>
+                    <group attrs="{'invisible': [('monto_retencion_renta', '!=', True)]}">
+                        <field name="tipo_retencion"/>
+                    </group>
+                </group>
+            </field>
+        </record>
+    </data>
+</odoo>
